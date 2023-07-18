@@ -6,17 +6,18 @@ import 'package:register_student/db/model/data_model.dart';
 import 'package:register_student/presentation/home_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+////////////////////////////////////////////////////////
+///  Not Completed  Have some major  edits  and bugs///
+//////////////////////////////////////////////////////
 
 void main() async {
-
-   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   if (!Hive.isAdapterRegistered(StudentModelAdapter().typeId)) {
     Hive.registerAdapter(StudentModelAdapter());
-
   }
 
-  runApp(const MyApp()); 
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -27,14 +28,14 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>AddStudentBloc(),
+          create: (context) => AddStudentBloc(),
         ),
         BlocProvider(
-          create: (context) =>HomePageBloc(),
+          create: (context) => HomePageBloc(),
         ),
       ],
       child: MaterialApp(
-         debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData.light(),
         home: const HomePage(),
@@ -42,4 +43,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
